@@ -1,0 +1,32 @@
+.header-text {
+  font-family: "Montserrat";
+  color: #343c69;
+  font-weight: 800 !important;
+  font-size: 48px;
+}
+.header-container {
+  padding-top: 150px;
+}
+
+.header-subtext {
+  color: #718093;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+.header-button {
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 18px;
+}
+
+.header-button-outline {
+  background-color: #fff;
+  border: 1px solid #343c69;
+  color: #343c69;
+}
