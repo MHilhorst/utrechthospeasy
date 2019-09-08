@@ -1,11 +1,14 @@
 .user-profile-img {
-  border-radius: 150px;
-  width: 150px;
-  height: 150px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
 }
 
-.nav-link {
-  margin: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
+.img-support {
+  margin-top: 10px;
+  font-family: "proxima-nova", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #2e2d36;
+  font-size: 14px;
+  font-weight: 600;
 }

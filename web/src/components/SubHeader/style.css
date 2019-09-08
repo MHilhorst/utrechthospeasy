@@ -1,14 +1,17 @@
 .subheader {
-  border-bottom: 1px solid #e4e4e4;
+  border-bottom: 1px solid #ebecf1;
   padding-top: 12px;
   padding-bottom: 12px;
   margin: 0px;
   margin-bottom: 50px;
+  background-color: #f4f5f7;
 }
 
 .subheader-text {
   margin-bottom: 0px;
-  font-family: "Montserrat";
-  font-weight: "bold";
-  font-size: 18px !important;
+  font-family: "proxima-nova", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #2e2d36;
+  font-size: 14px;
+  font-weight: 600;
 }

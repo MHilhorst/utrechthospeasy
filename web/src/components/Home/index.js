@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./style.css";
 
@@ -32,4 +31,4 @@ class Home extends React.Component {
   }
 }
 
-export default connect()(Home);
+export default Home;

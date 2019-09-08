@@ -15,7 +15,7 @@ sgMail.setApiKey(keys.sgMailKey);
 router.post("/register", (req, res) => {
   User.findOne(
     {
-      username: req.body.username
+      email: req.body.email
     },
     (err, user) => {
       if (user) {
@@ -25,7 +25,6 @@ router.post("/register", (req, res) => {
       } else {
         const newUser = new User({
           name: req.body.name,
-          userName: req.body.username,
           email: req.body.email,
           password: req.body.password
         });
@@ -55,7 +54,7 @@ router.post("/register", (req, res) => {
 });
 
 router.get("/profile", jwtAuth({ secret: secret }), (req, res) => {
-  console.log(req.user);
+  console.log(req.headers);
   if (req.user) {
     const { user } = req;
     res.send({ user });
@@ -63,18 +62,18 @@ router.get("/profile", jwtAuth({ secret: secret }), (req, res) => {
     res.json({ error: "No user logged in" });
   }
 });
+
 router.post("/login", (req, res) => {
-  const password = req.body.password;
   User.findOne({ email: req.body.email })
     .then(user => {
       if (!user) {
         return res.status(404).json({ error: "No account found" });
       } else {
-        bcrypt.compare(password, user.password).then(isMatch => {
+        bcrypt.compare(req.body.password, user.password).then(isMatch => {
           if (isMatch) {
             const payload = {
               _id: user._id,
-              name: user.userName
+              email: user.email
             };
             jwt.sign(payload, secret, { expiresIn: 36000 }, (err, token) => {
               if (err) {
@@ -82,7 +81,7 @@ router.post("/login", (req, res) => {
                   .status(500)
                   .json({ error: "Error signing token", raw: err });
               } else {
-                res.json({
+                res.status(200).json({
                   success: true,
                   token: `Bearer ${token}`,
                   user: user
@@ -127,10 +126,9 @@ router.get(
 );
 
 router.post("/logout", jwtAuth({ secret }), (req, res) => {
-  console.log(req.user);
   if (req.user) {
     req.logout();
-    res.json({ success: "You succesfully logged out" });
+    res.status(200).json({ success: "You succesfully logged out" });
   }
 });
 

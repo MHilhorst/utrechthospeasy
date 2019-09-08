@@ -9,15 +9,8 @@ class SideMenuAccount extends React.Component {
   render() {
     return (
       <>
-        <p>Profiel aanpassen</p>
-        <Nav defaultActiveKey="/home" className="flex-column">
-          <Nav.Link href="/" eventKey="link-1">
-            Link
-          </Nav.Link>
-          <Nav.Link href="/" eventKey="link-2">
-            Link
-          </Nav.Link>
-        </Nav>
+        <img src={this.props.userImg} className="user-profile-img " />
+        <p className="img-support">Foto aanpassen</p>
       </>
     );
   }
